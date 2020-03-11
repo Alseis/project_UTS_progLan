@@ -107,12 +107,21 @@ from collections import deque
 # b = []
 # mid(a, temp_arr = b)
 
+def popLeft(arr):
+        val=arr[0]
+        for i in range (0, len(arr)-1):
+            arr[i]=arr[i+1]
+            
+        del arr[-1]
+        return val
+
 def getMid(*args, temp = [], data = deque()):
     if len(temp) != 10:
         for i in args:
             data.append(i)
+#        print(data, end= " ")
 
-        val_pop = data.popleft()
+        val_pop = popLeft(data)
         ind_mid = (len(val_pop))//2
         temp.append(val_pop[ind_mid])
 
@@ -127,8 +136,8 @@ def getMid(*args, temp = [], data = deque()):
 
 a = [1,2,3,4,5,6,7,8,9,10]
 
-# b = getMid(a)
 getMid(a)
+
 # print(b)
 
 
